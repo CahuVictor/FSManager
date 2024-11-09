@@ -29,6 +29,15 @@
 
 FSManager fsManager;
 
+char filename[] = "/log.txt";
+char prefix[] = "LOG | ";
+
+void createLogFile();
+
+void writeLogFile();
+
+void readLogFile();
+
 void setup() {
     Serial.begin(115200);
 
@@ -42,13 +51,13 @@ void setup() {
     }
 
     // Cria um arquivo de log
-    fsManager.createFile("/log.txt");
+    createLogFile();
 
     // Escreve no arquivo de log
-    fsManager.writeFile("/log.txt", "Inicializando o sistema de arquivos...");
+    writeLogFile( "Inicializando o sistema de arquivos..." )
 
     // Lê o arquivo de log
-    fsManager.readFile("/log.txt");
+    readLogFile()
 
     // Exibe informações do sistema de arquivos
     fsManager.listFSInfo();
@@ -59,4 +68,19 @@ void setup() {
 
 void loop() {
     // Seu código aqui
+}
+
+void createLogFile()
+{
+    fsManager.createFile( filename );
+}
+
+void writeLogFile(char* msg)
+{
+    fsManager.writeFile( filename , (String(prefix) + String("Inicializando o sistema de arquivos...")).c_str());
+}
+
+void readLogFile()
+{
+    fsManager.readFile( filename );
 }
