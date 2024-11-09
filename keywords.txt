@@ -1,0 +1,9 @@
+FSManager	KEYWORD1
+formatFS	KEYWORD2
+openFS	    KEYWORD2
+closeFS	    KEYWORD2
+createFile	KEYWORD2
+deleteFile	KEYWORD2
+writeFile	KEYWORD2
+readFile	KEYWORD2
+listFSInfo	KEYWORD2
